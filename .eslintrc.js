@@ -1,22 +1,18 @@
 module.exports = {
   root: true,
-   "parserOptions": {
-     "sourceType": "module",
-     "ecmaFeatures": {
-       "jsx": true
-     }
-   },
-   extends: [
-   ],
-   parser: 'typescript-eslint-parser',
-   plugins: [
-   'react',
-   'typescript'
-   ],
-   'settings': {},
-   rules: {
-   // 缩进为两个空格
-   "indent": ["error", 2]
-   }
-
+  env: {
+    node: true
+  },
+  'extends': [
+    'plugin:vue/essential',
+    '@vue/standard'
+  ],
+  rules: {
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'space-before-function-paren': 0
+  },
+  parserOptions: {
+    parser: 'babel-eslint'
+  }
 }
