@@ -142,7 +142,7 @@
               type="primary"
               icon="el-icon-edit"
               size="mini"
-              @click="openEditDialog"
+              @click="openEditDialog(scope.row.id)"
               >编辑</el-button
             >
             <!-- 删除 -->
@@ -245,7 +245,7 @@ export default {
       this.$refs.editFormRef.resetFields()
     },
     async openEditDialog(id) {
-      const { data: res } = await this.$http.get(`roles/${id}`)
+      const { data: res } = await this.$http.get('roles/' + id)
       if (res.meta.status !== 200) {
         return this.$message.error(res.meta.msg)
       }
@@ -346,7 +346,6 @@ export default {
         `roles/${this.roleId}/rights`,
         { rids: idStr }
       )
-      console.log(res)
       if (res.meta.status !== 200) {
         return this.$message.error(res.meta.msg)
       }
