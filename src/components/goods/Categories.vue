@@ -247,6 +247,7 @@ export default {
     //  级联选择器change事件
     parentChange() {
       if (this.addForm.parentCat.length > 0) {
+        // eslint-disable-next-line standard/computed-property-even-spacing
         this.addForm.cat_pid = this.addForm.parentCat[
           this.addForm.parentCat.length - 1
         ]
